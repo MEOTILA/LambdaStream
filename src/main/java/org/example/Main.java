@@ -14,10 +14,11 @@ public class Main {
         System.out.println("The number of chars for each words are: ");
         stringCharCounter(names).forEach((k,v) -> System.out.println(k + ":" + v));
 
-        System.out.println("The number of chars for each words are: ");
-        stringCharWordsCounter(names).forEach((k,v) -> System.out.println("String Length " + k + ":" + v));
+        System.out.println("\nThe number of chars for each words are: ");
         stringCharWordsCounter(names).forEach((k,v) -> System.out.println("String Length " + k + ":" + v));
 
+        System.out.println("\nFirst character finder:  ");
+        firstCharFinder(names).forEach((k, v) -> System.out.println(k + ":" + v));
 
     }
     public static Map<Integer, List<String>> stringCharCounter (List<String> stringList){
@@ -28,5 +29,9 @@ public class Main {
         return stringList.stream()
                 .collect(Collectors.groupingBy(s -> s.length(), Collectors.counting()));
     }
+
+    public static Map<Character, List<String>> firstCharFinder(List<String> stringList){
+        return stringList.stream().collect(Collectors.groupingBy(s -> s.charAt(0)));
+    };
 
 }
