@@ -56,7 +56,8 @@ public class Main {
         System.out.println("\nSorted words Alphabetically: ");
         stringsDividerAlphabetically(names).forEach((k, v) -> System.out.println(k + ":" + v));
 
-
+        System.out.println("\nWords counter: ");
+        wordCounter(sentences).forEach((k,v) -> System.out.println(k + ":" + v));
 
     }
     public static Map<Integer, List<String>> stringCharCounter (List<String> stringList){
@@ -115,6 +116,13 @@ public class Main {
                         )
                 ));
     };
+
+    public static Map<Integer, List<String>> wordCounter (List<String> stringList){
+        return stringList.stream().collect(Collectors.groupingBy(s -> s.split(" ").length,
+                HashMap::new,
+                Collectors.toList()));
+    };
+
 
 
 
