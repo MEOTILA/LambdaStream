@@ -20,6 +20,9 @@ public class Main {
         System.out.println("\nFirst character finder:  ");
         firstCharFinder(names).forEach((k, v) -> System.out.println(k + ":" + v));
 
+        System.out.println("\nNames starts with 'A': ");
+        namesStartsWithA(names).forEach(System.out::println);
+
     }
     public static Map<Integer, List<String>> stringCharCounter (List<String> stringList){
       return stringList.stream().collect(Collectors.groupingBy(s -> s.length()));
@@ -32,6 +35,10 @@ public class Main {
 
     public static Map<Character, List<String>> firstCharFinder(List<String> stringList){
         return stringList.stream().collect(Collectors.groupingBy(s -> s.charAt(0)));
+    };
+
+    public static List<String> namesStartsWithA (List<String> stringLists){
+        return stringLists.stream().filter(s -> s.startsWith("A")).toList();
     };
 
 }
