@@ -30,9 +30,11 @@ public class Main {
         System.out.println("\nThe number of chars for each words are: ");
         stringCharWordsCounter(names).forEach((k,v) -> System.out.println("String Length " + k + ":" + v));
 
-        System.out.println("\nThe number of chars for each words are: ");
-        stringCharCounterWithWordCount2(names).forEach((k, v) -> System.out.println("Length " + k + ": " + v));
+        System.out.println("\nThe number of chars for each words are2: ");
+        stringCharCounterWithWordCount2(names).forEach((k, v) -> System.out.println("String Length " + k + ": " + v));
 
+        System.out.println("\nThe number of chars for each words are3: ");
+        stringCharCounterWithWordCount3(names).forEach((k, v) -> System.out.println("String Length " + k + ": " + v));
 
         System.out.println("\nFirst character finder:  ");
         firstCharFinder(names).forEach((k, v) -> System.out.println(k + ":" + v));
@@ -74,7 +76,18 @@ public class Main {
     public static Map<Integer, String> stringCharCounterWithWordCount2(List<String> stringList) {
         return stringList.stream()
                 .collect(Collectors.groupingBy(
-                        String::length,
+                        s -> s.length(),
+                        Collectors.collectingAndThen(
+                                Collectors.counting(),
+                                count -> "Count: " + count
+                        )
+                ));
+    }
+
+    public static Map<Integer, String> stringCharCounterWithWordCount3(List<String> stringList) {
+        return stringList.stream()
+                .collect(Collectors.groupingBy(
+                        s -> s.length(),
                         Collectors.collectingAndThen(
                                 Collectors.toList(),
                                 words -> "Words: " + words + ", Count: " + words.size()
