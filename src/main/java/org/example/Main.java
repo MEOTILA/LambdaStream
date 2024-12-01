@@ -10,6 +10,17 @@ public class Main {
         List<String> names = List.of("Amir", "Hatef", "Mehran", "Mojtaba", "Mohammad",
                 "Ali", "Davood", "Reza", "Mohsen", "asghar", "ben", "Ben");
 
+        List<Integer> numbers = List.of(
+                1,20,27,11,0,3,30,31,47
+        );
+
+        List<String> sentences = List.of(
+                "David is a man",
+                "Robert is a boy",
+                "Adam is ","Alisa","Arash","Sarah","ali","adam"
+        );
+
+
 
         System.out.println("The number of chars for each words are: ");
         stringCharCounter(names).forEach((k,v) -> System.out.println(k + ":" + v));
@@ -23,8 +34,16 @@ public class Main {
         System.out.println("\nNames starts with 'A': ");
         namesStartsWithA(names).forEach(System.out::println);
 
-        System.out.println("\nSorted names: ");
+        System.out.println("\nSum of Even numbers: ");
+        System.out.println(sumOfEvenNumbers(numbers));
+
+        System.out.println("\nSorted names not case sensitive: ");
         sortNamesToUpperCase(names).forEach(System.out::println);
+
+        System.out.println("\nSorted names case sensitive");
+        sortNamesCaseSensitive(names).forEach(System.out::println);
+
+
 
 
     }
@@ -51,6 +70,10 @@ public class Main {
 
     public static List<String> sortNamesToUpperCase(List<String> stringLists){
         return stringLists.stream().sorted().map(s -> s.toUpperCase()).toList();
+    };
+
+    public static List<String> sortNamesCaseSensitive(List<String> stringLists){
+        return stringLists.stream().sorted((s1,s2) -> s1.compareToIgnoreCase(s2)).toList();
     };
 
 }
