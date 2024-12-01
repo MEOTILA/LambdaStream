@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
         List<String> names = List.of("Amir", "Hatef", "Mehran", "Mojtaba", "Mohammad",
-                "Ali", "Davood", "Reza", "Mohsen");
+                "Ali", "Davood", "Reza", "Mohsen", "asghar", "ben", "Ben");
 
 
         System.out.println("The number of chars for each words are: ");
@@ -22,6 +22,10 @@ public class Main {
 
         System.out.println("\nNames starts with 'A': ");
         namesStartsWithA(names).forEach(System.out::println);
+
+        System.out.println("\nSorted names: ");
+        sortNamesToUpperCase(names).forEach(System.out::println);
+
 
     }
     public static Map<Integer, List<String>> stringCharCounter (List<String> stringList){
@@ -39,6 +43,14 @@ public class Main {
 
     public static List<String> namesStartsWithA (List<String> stringLists){
         return stringLists.stream().filter(s -> s.startsWith("A")).toList();
+    };
+
+    public static int sumOfEvenNumbers (List<Integer> numbers){
+        return numbers.stream().filter(n -> n % 2 == 0).reduce(0,(n1,n2) -> n1+n2);
+    }
+
+    public static List<String> sortNamesToUpperCase(List<String> stringLists){
+        return stringLists.stream().sorted().map(s -> s.toUpperCase()).toList();
     };
 
 }
