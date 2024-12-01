@@ -1,7 +1,11 @@
 package org.example;
 
+import lombok.NonNull;
+
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -14,11 +18,14 @@ public class Main {
                 1,20,27,11,0,3,30,31,47
         );
 
+        List<Double> doubleNumbers = List.of(1.0,20.0,27.0,11.0,3.0,30.0,31.0,47.0,0.0);
+
         List<String> sentences = List.of(
                 "David is a man",
                 "Robert is a boy",
                 "Adam is ","Alisa","Arash","Sarah","ali","adam"
         );
+
 
 
 
@@ -43,6 +50,11 @@ public class Main {
         System.out.println("\nSorted names case sensitive");
         sortNamesCaseSensitive(names).forEach(System.out::println);
 
+        System.out.println("\nMinimum number is: ");
+        System.out.println(minNumFinder(doubleNumbers));
+
+        System.out.println("\nMaximum number is: ");
+        System.out.println(maxNumFinder(doubleNumbers));
 
 
 
@@ -74,6 +86,18 @@ public class Main {
 
     public static List<String> sortNamesCaseSensitive(List<String> stringLists){
         return stringLists.stream().sorted((s1,s2) -> s1.compareToIgnoreCase(s2)).toList();
+    };
+
+    public static double minNumFinder (List<Double> doubleNumbers){
+        Optional<Double> output = doubleNumbers.stream().min(Comparator.naturalOrder());
+        if(output.isPresent())
+            return output.get();
+        else return 0;
+
+
+    };
+    public static double maxNumFinder (@NonNull List<Double> doubleNumbers){
+        return doubleNumbers.stream().max(Comparator.naturalOrder()).get();
     };
 
 }
