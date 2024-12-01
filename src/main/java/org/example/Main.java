@@ -2,10 +2,7 @@ package org.example;
 
 import lombok.NonNull;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -56,6 +53,9 @@ public class Main {
         System.out.println("\nMaximum number is: ");
         System.out.println(maxNumFinder(doubleNumbers));
 
+        System.out.println("\nSorted words Alphabetically: ");
+        stringsDividerAlphabetically(names).forEach((k, v) -> System.out.println(k + ":" + v));
+
 
 
     }
@@ -99,5 +99,24 @@ public class Main {
     public static double maxNumFinder (@NonNull List<Double> doubleNumbers){
         return doubleNumbers.stream().max(Comparator.naturalOrder()).get();
     };
+    public static Map<Character, List<String>> stringsDividerAlphabetically (List<String> stringList){
+        return stringList.stream()
+                .collect(Collectors.groupingBy(
+                        s -> Character.toLowerCase(s.charAt(0)),
+                        HashMap::new,
+                        Collectors.collectingAndThen(
+                                Collectors.toMap(
+                                        word -> word.toLowerCase(),
+                                        word -> word,
+                                        (existing, replacement) -> existing,
+                                        HashMap::new
+                                ),
+                                map -> new ArrayList<>(map.values())
+                        )
+                ));
+    };
+
+
+
 
 }
