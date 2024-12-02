@@ -27,13 +27,13 @@ public class Main {
         System.out.println("The number of chars for each words are: ");
         stringCharCounter(names).forEach((k,v) -> System.out.println(k + ":" + v));
 
-        System.out.println("\nThe number of chars for each words are: ");
+        System.out.println("\nThe number of chars for each words are (Methode 1): ");
         stringCharWordsCounter(names).forEach((k,v) -> System.out.println("String Length " + k + ":" + v));
 
-        System.out.println("\nThe number of chars for each words are2: ");
+        System.out.println("\nThe number of chars for each words are (Methode 2): ");
         stringCharCounterWithWordCount2(names).forEach((k, v) -> System.out.println("String Length " + k + ": " + v));
 
-        System.out.println("\nThe number of chars for each words are3: ");
+        System.out.println("\nThe number of chars for each words are (Methode 3): ");
         stringCharCounterWithWordCount3(names).forEach((k, v) -> System.out.println("String Length " + k + ": " + v));
 
         System.out.println("\nFirst character finder:  ");
@@ -48,7 +48,7 @@ public class Main {
         System.out.println("\nSorted names not case sensitive: ");
         sortNamesToUpperCase(names).forEach(System.out::println);
 
-        System.out.println("\nSorted names case sensitive");
+        System.out.println("\nSorted names case sensitive: ");
         sortNamesCaseSensitive(names).forEach(System.out::println);
 
         System.out.println("\nMinimum number is: ");
