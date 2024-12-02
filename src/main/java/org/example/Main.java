@@ -69,6 +69,12 @@ public class Main {
         System.out.println("\nWords counter: ");
         wordCounter(sentences).forEach((k,v) -> System.out.println(k + ":" + v));
 
+        System.out.println("\nReversed Numbers: ");
+        reversedDoubleNumbers(doubleNumbers).forEach(System.out::println);
+
+        System.out.println("\nReversed sorted names: ");
+        reversedNames(names).forEach(System.out::println);
+
     }
     public static Map<Integer, List<String>> stringCharCounter (List<String> stringList){
       return stringList.stream().collect(Collectors.groupingBy(s -> s.length()));
@@ -154,6 +160,16 @@ public class Main {
                 HashMap::new,
                 Collectors.toList()));
     };
+
+    public static List<Double> reversedDoubleNumbers (List<Double> doublesList){
+        return doublesList.stream().sorted(Comparator.reverseOrder()).toList();
+    };
+
+    public static List<String> reversedNames (List<String> stringsList){
+        return stringsList.stream().sorted(Comparator.reverseOrder()).toList();
+    };
+
+
 
 
 
