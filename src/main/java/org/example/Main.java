@@ -36,6 +36,12 @@ public class Main {
         System.out.println("\nThe number of chars for each words are (Methode 3): ");
         stringCharCounterWithWordCount3(names).forEach((k, v) -> System.out.println("String Length " + k + ": " + v));
 
+        System.out.println("\nThe number of chars for each words are (Methode 4): ");
+        stringCharCounter(names).forEach((length, group) -> {
+            System.out.println("Name length: " + length);
+            group.forEach(n -> System.out.println(n));
+        });
+
         System.out.println("\nFirst character finder:  ");
         firstCharFinder(names).forEach((k, v) -> System.out.println(k + ":" + v));
 
