@@ -126,12 +126,12 @@ public class Main {
         if(output.isPresent())
             return output.get();
         else return 0;
-
-
     };
+
     public static double maxNumFinder (@NonNull List<Double> doubleNumbers){
         return doubleNumbers.stream().max(Comparator.naturalOrder()).get();
     };
+
     public static Map<Character, List<String>> stringsDividerAlphabetically (List<String> stringList){
         return stringList.stream()
                 .collect(Collectors.groupingBy(
