@@ -42,6 +42,9 @@ public class Main {
             group.forEach(n -> System.out.println(n));
         });
 
+        System.out.println("\nThe number of chars for each words are (Methode 5):");
+        System.out.println(stringCharCounter(names));
+
         System.out.println("\nFirst character finder:  ");
         firstCharFinder(names).forEach((k, v) -> System.out.println(k + ":" + v));
 
@@ -74,6 +77,8 @@ public class Main {
 
         System.out.println("\nReversed sorted names: ");
         reversedNames(names).forEach(System.out::println);
+
+
 
     }
     public static Map<Integer, List<String>> stringCharCounter (List<String> stringList){
